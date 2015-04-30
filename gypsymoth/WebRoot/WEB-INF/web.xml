@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/applicationContext-hibernate.xml
+			/WEB-INF/applicationContext-system.xml
+			/WEB-INF/applicationContext-business.xml
+			/WEB-INF/applicationContext-person.xml
+     		/WEB-INF/applicationContext-business.xml
+			/WEB-INF/applicationContext-bulletin.xml
+			/WEB-INF/applicationContext-information.xml
+			/WEB-INF/applicationContext-organization.xml
+			/WEB-INF/applicationContext-client.xml
+			/WEB-INF/applicationContext-onlineqa.xml
+			/WEB-INF/applicationContext-examine.xml
+			/WEB-INF/applicationContext-assignment.xml
+			/WEB-INF/applicationContext-statistics.xml
+
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>/WEB-INF/classes/log4j.properties</param-value>
+	</context-param>
+
+	<filter>
+		<filter-name>Set Character Encoding</filter-name>
+		<filter-class>com.sinosoft.gypsymoth.filter.SetCharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>Set Character Encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<servlet>
+		<servlet-name>img</servlet-name>
+		<servlet-class>
+			com.sinosoft.gypsymoth.utils.validate
+		</servlet-class>
+	</servlet>
+	
+	<!-- ======================== add by guodingjun in 2011-03-22=========================== -->
+	<!-- ======================== 即时通讯  ============================== -->
+	<!-- ======================== add start  ============================== -->
+	
+	<servlet>
+		<servlet-name>httpServiceForAnyq</servlet-name>
+		<servlet-class>
+			com.sinosoft.common.anyq.HttpServiceForAnyq
+		</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>httpServiceForAnyq</servlet-name>
+		<url-pattern>/httpServiceForAnyq</url-pattern>
+	</servlet-mapping>
+	
+	<!-- ======================== add end  ============================== -->
+	
+	<servlet> 
+		<servlet-name>DisplayChart</servlet-name> 
+		<servlet-class>
+			org.jfree.chart.servlet.DisplayChart
+		</servlet-class> 
+	</servlet> 
+
+	<servlet-mapping> 
+		<servlet-name>DisplayChart</servlet-name> 
+		<url-pattern>/DisplayChart</url-pattern> 
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>img</servlet-name>
+		<url-pattern>/validate</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/page/error/error.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/page/error/error.jsp</location>
+	</error-page>
+	
+	<jsp-config>
+		<taglib>
+			<taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
+			<taglib-location>c.tld</taglib-location>
+		</taglib>
+		
+		<taglib>
+			<taglib-uri>http://java.sun.com/jstl/fmt</taglib-uri>
+			<taglib-location>fmt.tld</taglib-location>
+		</taglib>
+
+		<taglib>
+			<taglib-uri>http://java.sun.com/jstl/functions</taglib-uri>
+			<taglib-location>fn.tld</taglib-location>
+		</taglib>	
+	</jsp-config>
+</web-app>

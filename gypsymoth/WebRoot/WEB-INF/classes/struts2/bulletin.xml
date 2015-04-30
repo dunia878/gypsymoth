@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	
+	<package name="bulletin" namespace="/page/bulletin" extends="struts-default">
+	
+		<action name="selectRole" method="selectRole"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="adminSuccess" type="redirect">getAllDataByPages.action</result>
+			<result name="clientSuccess" type="redirect">getAllCDataByPage.action</result>
+			<result name="personSuccess" type="redirect">getAllADataByPage.action</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+	   <action name="save"  method="save"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+	  	    <result name="success" type="chain">getAllDataByPages</result>   
+		</action>
+		<!-- 已登陆管理员 -->
+		<action name="getAllDataByPages" method="getAllDataByPages"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+		    <result name="success">BulletinlistByPage.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+			
+		<!-- 未登录 -->
+		<action name="getAllDataByPage" method="getAllDataByPage"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="success">nologinByPage.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<!-- 已登录 用户 -->
+		<action name="getAllADataByPage" method="getAllADataByPage"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="success">bulletinlistPerson.jsp</result>		
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<!-- 已登录客户 -->
+		<action name="getAllCDataByPage" method="getAllCDataByPage"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="success">nologinByPage.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="indexList" method="indexList"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+		</action>
+		
+		<action name="getBulletinById" method="getBulletinById"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="success">nologinByDetail.jsp</result>
+		</action>
+		
+		<action name="getBulletinByIds" method="getBulletinByIds"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="success">editBulletin.jsp</result>
+		</action>
+		
+		<action name="getBulletinByIdPerson" method="getBulletinByIdPerson"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="success">bulletinDetailPerson.jsp</result>
+		</action>
+		
+ 
+		<action name="deleteChecked" method="deleteChecked"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction" >
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>  
+		
+	
+		
+		<action name="getABulletinById" method="getABulletinById"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="success">detailBulletin.jsp</result>
+		</action>
+		
+		<action name="deleteBulletinById" method="deleteBulletinById"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="success" type="chain">getAllDataByPages</result> 
+		</action>
+		
+
+		<action name="updateBulletin" method="updateBulletin"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="success" type="chain">getAllDataByPages</result> 
+			<result name="error">error.jsp</result>
+		</action>
+		
+		
+		<!-- 批量删除 -->
+		<action name="delete" method="delete"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="success" type="chain">getAllDataByPages</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<!-- 修改公告 -->
+		<action name="updataBulletin" method="updataBulletin"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="success" type="chain">getAllDataByPages</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		
+		<!-- 联系我们 -->
+		<!-- 获得总部联系方式 -->
+		<action name="getLinkusByType" method="getLinkusByType"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="success">linkusView.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<!-- 修改总部联系方式 -->
+		<action name="updataLinkus" method="updataLinkus"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="success">linkusEdit.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<!-- 删除总部联系方式 -->
+		<action name="deleteLinkusById" method="deleteLinkusById"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="success">linkusAdd.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<!--更新总部联系方式 -->
+		<action name="updataLink" method="updataLink"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="success">linkusAdd.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		
+		<!--更新分部联系方式 -->
+		<action name="updataLink1" method="updataLink1"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="success">linkusAdd1.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		
+			<!-- 删除分部联系方式 -->
+		<action name="deleteLinkusById1" method="deleteLinkusById1"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="success">linkusAdd1.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		
+		<!-- 保存总部联系方式 -->
+		<action name="saveLinkus"  method="saveLinkus"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+	  	    <result name="success" type="chain">getLinkusByType</result>   
+	  	    <result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+			<!-- 保存分部联系方式 -->
+		<action name="saveLinkus1"  method="saveLinkus1"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+	  	    <result name="success" type="chain">getLinkusByType1</result>   
+	  	    <result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		
+		<!-- 获得分部联系方式 -->
+		<action name="getLinkusByType1" method="getLinkusByType1"
+			class="com.sinosoft.gypsymoth.bussiness.bulletin.action.BulletinAction">
+			<result name="success">linkusView1.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		
+		
+		
+		
+		
+		
+		
+	</package>
+</struts>

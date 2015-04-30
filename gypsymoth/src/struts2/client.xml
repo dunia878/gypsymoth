@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<constant name="struts.ui.theme" value="simple" /> 
+<constant name="struts.ui.templateDir" value="template" /> 
+<constant name="struts.ui.templateSuffix" value="ftl" /> 
+
+	<package name="client" namespace="/page/client" extends="struts-default">
+	
+		<action name="ajaxSelect" method="ajaxSelect" 
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success">contentlist.jsp</result> 
+		</action>
+			<action name="ajaxSelect1" method="ajaxSelect1" 
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success">contentlist.jsp</result> 
+		</action>
+		<action name="updataClient" method="updataClient"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success" type="chain">getClientByPage</result>
+			<result name="error">error.jsp</result>
+			<result name="input">error.jsp</result>
+		</action>
+		<!-- 添加客户 -->
+		<action name="saveClient" method="saveClient"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success" type="chain">getClientByPage</result>
+			<result name="error">error.jsp</result>
+			<result name="input">error.jsp</result>
+		</action>
+		<!-- 验证客户是否存在 -->
+		<action name="getAccountByName" method="getAccountByName"
+			class="com.sinosoft.gypsymoth.bussiness.register.action.RegisterAction">
+			<result name="success">clientAddCity.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="updataClientS" method="updataClientS"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success" type="chain">getClientInfoByIds</result>
+			<result name="error">error.jsp</result>
+			<result name="input">error.jsp</result>
+		</action>
+		
+		
+		
+		
+		<!-- 由省份得到城市表 -->
+		<action name="getCityfor" method="getCityfor"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success">clientAddCity.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<!-- 由省份得到城市表 -->
+		<action name="getCitys" method="getCitys"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success">clientsAddCity.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<!-- 修改表单 -->
+		<action name="updataC" method="updataC"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success">clientEdit.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<!-- 修改客户的客户表单 -->
+		<action name="updataCs" method="updataCs"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success">clientsEdit.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		
+		<!-- 修改表单 -->
+		<action name="updataCS" method="updataCS"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success">clientEditForSys.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		
+		<action name="getAllDataByPage" method="getAllDataByPage"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success">clientList.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="getClientByPage" method="getClientByPage"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success">clientList.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="getClientById" method="getClientById"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success">clientEdit.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="getClientInfoById" method="getClientInfoById"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success">clientInfo.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="deleteClientById" method="deleteClientById"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success" type="chain">getClientByPage</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="delete" method="delete"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success" type="chain">getClientByPage</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="getClientInfoByIds" method="getClientInfoByIds"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success">clientViewForSys.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="clientAdd" method="clientAdd"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success">clientAdd.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+			<action name="clientsAdd" method="clientsAdd"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success">clientsAdd.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="getClientsByPage" method="getClientsByPage"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success">clientsList.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<!-- 客户的客户更新 -->
+		<action name="updataClients" method="updataClients"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success" type="chain">getClientsByPage</result>
+			<result name="goToClient" type="redirect">getClientInfoById.action?clientId=${clientId}</result>
+			<result name="error">error.jsp</result> 
+			<result name="input">error.jsp</result>
+		</action>
+		
+		
+		<!-- 分用户客户登入 -->
+		<action name="selectClient" method="selectClient"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="getClientByPage" type="redirect">getClientByPage.action</result>
+			<result name="getClientsByPage" type="redirect">getClientsByPage.action</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<!-- 添加客户的客户 -->
+		<action name="saveClients" method="saveClients"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success" type="chain">getClientsByPage</result>
+			<result name="error">error.jsp</result>
+			<result name="input">error.jsp</result>
+		</action>
+		
+		<!-- 客户的客户删除 -->
+		<action name="deleteClientsById" method="deleteClientsById"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success" type="chain">getClientsByPage</result>
+			<result name="child" type="redirect">getClientInfoById.action?clientId=${clientId}</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<!-- 客户的客户修改 -->
+		<action name="getClientsById" method="getClientsById"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success">clientsEdit.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<!-- 客户的客户查看 -->
+		<action name="getClientsInfoById" method="getClientsInfoById"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success">clientsView.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		
+	</package>
+</struts>
+
+
+
+

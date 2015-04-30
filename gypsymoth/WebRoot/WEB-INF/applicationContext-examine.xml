@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC 
+	"-//SPRING/DTD BEAN/EN" 
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	
+	<!-- 检查结果   start -->
+	<bean id="examineService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.examine.service.ExaminServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+
+	</bean>
+			<bean id="examineAction"
+		class="com.sinosoft.gypsymoth.bussiness.examine.action.ExamineAction">
+		<property name="examineService">
+			<ref bean="examineService" />
+		</property>
+	</bean>
+	<!-- 检查结果   end -->
+	
+	
+</beans>

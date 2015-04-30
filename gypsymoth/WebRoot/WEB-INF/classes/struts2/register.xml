@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	
+	<package name="register" namespace="/page/register" extends="struts-default">
+	
+		<action name="getInitData" method="getInitData"
+			class="com.sinosoft.gypsymoth.bussiness.register.action.RegisterAction">
+			<result name="success">register.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="getCity" method="getCity"
+			class="com.sinosoft.gypsymoth.bussiness.register.action.RegisterAction">
+			<result name="success">ajaxResult.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="getAccountByName" method="getAccountByName"
+			class="com.sinosoft.gypsymoth.bussiness.register.action.RegisterAction">
+			<result name="success">ajaxResult.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="saveClient" method="saveClient"
+			class="com.sinosoft.gypsymoth.bussiness.register.action.RegisterAction">
+			<result name="success">regsuccess.jsp</result>
+			<result name="haveName" type="redirect">getInitData.action?message=${message}</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="updateAccountStatus" method="updateAccountStatus"
+			class="com.sinosoft.gypsymoth.bussiness.register.action.RegisterAction">
+			<result name="success">actsuccess.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="forgotPassword" method="forgotPassword"
+			class="com.sinosoft.gypsymoth.bussiness.register.action.RegisterAction">
+			<result name="success">sendPassword.jsp</result>
+			<result name="error">forgotPassword.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="updateAccountPassword" method="updateAccountPassword"
+			class="com.sinosoft.gypsymoth.bussiness.register.action.RegisterAction">
+			<result name="success">resetPassword.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+	</package>
+</struts>

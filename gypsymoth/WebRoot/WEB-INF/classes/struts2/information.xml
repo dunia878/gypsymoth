@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+	<package name="information" namespace="/page/information"
+		extends="struts-default">
+		<action name="selectRole" method="selectRole"
+			class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+			<result name="adminSuccess" type="redirect">
+				getAllDataByPages.action
+			</result>
+			<result name="clientSuccess" type="redirect">
+				getAllCDataByPage.action
+			</result>
+			<result name="personSuccess" type="redirect">
+				getAllADataByPage.action
+			</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<!-- 未登录 -->
+		<action name="getAllDataByPage" method="getAllDataByPage"
+			class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+			<result name="success">nologinByPage.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<!-- 登录  管理级别 -->
+		<action name="getAllDataByPages" method="getAllDataByPages"
+			class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+			<result name="success">InformationlistByPage.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+
+		<!-- 登录 用户级别 -->
+		<action name="getAllADataByPage" method="getAllADataByPage"
+			class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+			<result name="success">
+				informationlistPersonByPage.jsp
+			</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<!-- 登录 客户级别 -->
+		<action name="getAllCDataByPage" method="getAllCDataByPage"
+			class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+			<result name="success">
+				informationlistClientByPage.jsp
+			</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+
+
+		<action name="save" method="save"
+			class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+			<result name="success" type="chain">
+				getAllDataByPages
+			</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+
+
+		<action name="getInformationById" method="getInformationById"
+			class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+			<result name="success">detailInformation.jsp</result>
+		</action>
+		
+		<action name="getInformationByIdPerson" method="getInformationByIdPerson"
+			class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+			<result name="success">detailInforPerson.jsp</result>
+		</action>
+		<!--  更新-->
+		<action name="deleteInformationById"
+			method="deleteInformationById"
+			class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+			<result name="success" type="chain">
+				getAllDataByPages
+			</result>
+		</action>
+
+
+		<!--  登陆后 文件下载-->
+		<action name="downloadFile" method="downloadFile"
+			class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+		</action>
+		
+		<!--  未登录文件下载-->
+		<action name="downloadFileindex" method="downloadFileindex"
+			class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+		</action>
+		<action name="downloadlist" method="downloadlist"
+			class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+			<result name="success">download.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		
+		
+	    <!--  未登录文件下载-->
+		<action name="downloadFiles" method="downloadFiles"
+			class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+		</action>
+
+
+		<!-- 下载文件的Action定义 -->
+		<action name="" method=""
+			class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+			<!-- 设置文件名参数，由页面上传入 -->
+			<param name="informationname"></param>
+			<result name="success" type="stream">
+				<!-- 下载文件类型定义 -->
+				<param name="contentType">text/plain</param>
+				<!-- 下载文件处理方法 -->
+				<param name="contentDisposition">
+					attachment;filename="${downloadChineseFileName}"
+				</param>
+				<!-- 下载文件输出流定义 -->
+				<param name="inputName">downloadFile</param>
+			</result>
+		</action>
+		<action name="indexList1" method="indexList1"
+			class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+		</action>
+		
+		<!-- 批量删除 -->
+		<action name="delete" method="delete"
+			class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+			<result name="success" type="chain">getAllDataByPages</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<!-- 修改资料-->
+		<action name="getInformationByIds" method="getInformationByIds"
+			class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+			<result name="success" >informationEdit.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<!-- 更新资料-->
+		<action name="updataInformation" method="updataInformation"
+			class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+			<result name="success" type="chain">getAllDataByPages</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+	</package>
+</struts>

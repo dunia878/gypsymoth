@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC 
+	"-//SPRING/DTD BEAN/EN" 
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<!-- example start -->
+	<bean id="exampleService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.example.service.ExampleServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean id="exampleAction"
+		class="com.sinosoft.gypsymoth.bussiness.example.action.ExampleAction">
+		<property name="exampleService">
+			<ref bean="exampleService" />
+		</property>
+	</bean>
+	<!-- example end -->
+	
+	<!-- login start -->
+	<bean id="loginService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.login.service.LoginServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean id="loginAction"
+		class="com.sinosoft.gypsymoth.bussiness.login.action.LoginAction">
+		<property name="loginService">
+			<ref bean="loginService" />
+		</property>
+	</bean>
+	<!-- login end -->
+	
+	<!-- register start -->
+	<bean id="registerService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.register.service.RegisterServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean id="registerAction"
+		class="com.sinosoft.gypsymoth.bussiness.register.action.RegisterAction">
+		<property name="registerService">
+			<ref bean="registerService" />
+		</property>
+		<property name="commonDao">
+			<ref bean="commonDao" />
+		</property>
+	</bean>
+	<!-- register end -->
+	
+	<!-- system start -->
+	<bean id="rightService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.system.service.RightServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean id="rightAction"
+		class="com.sinosoft.gypsymoth.bussiness.system.action.RightAction">
+		<property name="rightService">
+			<ref bean="rightService" />
+		</property>
+	</bean>
+	<bean id="roleService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.system.service.RoleServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean id="roleAction"
+		class="com.sinosoft.gypsymoth.bussiness.system.action.RoleAction">
+		<property name="roleService">
+			<ref bean="roleService" />
+		</property>
+	</bean>
+	<bean id="accountService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.system.service.AccountServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean id="accountAction"
+		class="com.sinosoft.gypsymoth.bussiness.system.action.AccountAction">
+		<property name="accountService">
+			<ref bean="accountService" />
+		</property>
+		<property name="registerService">
+			<ref bean="registerService" />
+		</property>
+		<property name="commonDao">
+			<ref bean="commonDao" />
+		</property>
+	</bean>
+	<!-- system end -->
+</beans>

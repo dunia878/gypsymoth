@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC 
+	"-//SPRING/DTD BEAN/EN" 
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	
+	<!-- business start -->
+	<bean id="businessService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.business.service.BusinessServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="insert*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+			</props> 
+		</property>
+
+	</bean>
+	<bean id="businessAction"
+		class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+		<property name="businessService">
+			<ref bean="businessService" />
+		</property>
+	</bean>
+	<!-- business end -->
+	<!-- business charges start -->
+	<bean id="chargesService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.business.service.ChargesServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean id="chargesAction"
+		class="com.sinosoft.gypsymoth.bussiness.business.action.ChargesAction">
+		<property name="chargesService">
+			<ref bean="chargesService" />
+		</property>
+	</bean>
+	<bean id="selectService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.business.service.SelectServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean id="selectAction"
+		class="com.sinosoft.gypsymoth.bussiness.business.action.SelectAction">
+		<property name="selectService">
+			<ref bean="selectService" />
+		</property>
+	</bean>
+	<!-- business charges end -->
+	
+	<!-- business certificate start -->
+	<bean id="certificateService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.business.service.CertificateServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean id="certificateAction"
+		class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+		<property name="certificateService">
+			<ref bean="certificateService" />
+		</property>
+	</bean>
+	<!-- business certificate end --> 
+	
+</beans>

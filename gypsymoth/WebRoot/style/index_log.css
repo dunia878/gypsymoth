@@ -1,0 +1,20 @@
+a:link{text-decoration:none;color:#0C61A7;}
+a:visited {text-decoration:none;color:#0C61A7;}
+a:hover {text-decoration:underline;color:#2E80C3;}
+a:active {text-decoration:none;color:#0C61A7;} 
+/*------body------*/
+body {font-size:14px;color: #0C61A7;margin:0px;background-color:#f2f9ff;}
+.title{font-size:14px;color:#249CD3; font-weight:bolder; background-image:url(../images/index_tit_bg.gif); background-repeat:repeat-x; height:24px; padding-left:15px;}
+.tab{background-color:#fff;padding:0px;width:1002px; margin:auto;}
+
+.log{ border:1px solid #AAE9EB; background-image:url(../images/index_log_bg.gif); height:103px; background-repeat:repeat-x; padding:5px;color:#063D88;}
+.log td{ border-bottom:1px solid #aae9eb; height:23px; padding-left:15px;}
+.log span{color:#E92D00;}
+.line{ border:1px solid #CADFF8; padding:5px;}
+.line1{ border:1px solid #CADFF8;}
+.main14blue{color:#249CD3; font-size:14px; font-weight:bold;}
+.marquees{ width:992px; height:28px; background-image:url(../images/datebg.gif); background-repeat:repeat-x;margin:auto;}
+.marquee{background-image:url(../images/marqueesbg.gif); background-repeat:repeat-x; width:600px;color:#fff;}
+.marquee a:visited{color:#fff;}
+.marquee a:link{color:#fff;}
+.maina{ font-size:12px; color:#fff; font-weight:bold;}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC 
+	"-//SPRING/DTD BEAN/EN" 
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<!-- example start -->
+	<bean id="assignmentService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.assignment.service.AssignmentServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean id="AssignmentAction"
+		class="com.sinosoft.gypsymoth.bussiness.assignment.action.AssignmentAction">
+		<property name="assignmentService">
+			<ref bean="assignmentService" />
+		</property>
+	</bean>
+	<!-- example end -->
+	
+</beans>

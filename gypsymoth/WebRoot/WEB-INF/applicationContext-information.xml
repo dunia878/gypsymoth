@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC 
+	"-//SPRING/DTD BEAN/EN" 
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	
+	<!-- 资料信息   start -->
+	<bean id="informationService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.information.service.InformationServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+
+	</bean>
+			<bean id="informationAction"
+		class="com.sinosoft.gypsymoth.bussiness.information.action.InformationAction">
+		<property name="informationService">
+			<ref bean="informationService" />
+		</property>
+	</bean>
+	<!-- 公告信息   end -->
+	
+	
+</beans>

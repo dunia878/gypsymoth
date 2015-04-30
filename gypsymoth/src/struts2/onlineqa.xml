@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<constant name="struts.ui.theme" value="simple" /> 
+<constant name="struts.ui.templateDir" value="template" /> 
+<constant name="struts.ui.templateSuffix" value="ftl" /> 
+
+	<package name="onlineqa" namespace="/page/onlineqa" extends="struts-default">
+        <!-- admin提问 -->
+        <action name="save"  method="save"
+			class="com.sinosoft.gypsymoth.bussiness.onlineqa.action.OnlineqaAction">
+	  	    <result name="success" type="chain">getAllDataByPage</result>   
+		</action>
+		<!-- 用户提问 -->
+		  <action name="saveperson"  method="saveperson"
+			class="com.sinosoft.gypsymoth.bussiness.onlineqa.action.OnlineqaAction">
+	  	    <result name="success" type="chain">getPersonPage</result>   
+		</action>
+		<!-- 客户提问 -->
+		  <action name="saveclient"  method="saveclient"
+			class="com.sinosoft.gypsymoth.bussiness.onlineqa.action.OnlineqaAction">
+	  	    <result name="success" type="chain">getClientPage</result>   
+		</action>
+		
+		<!-- 分角色进入页面 -->
+		<action name="selectRole" method="selectRole"
+			class="com.sinosoft.gypsymoth.bussiness.onlineqa.action.OnlineqaAction">
+			<result name="adminSuccess" type="redirect">getAllDataByPage.action</result>
+			<result name="clientSuccess" type="redirect">getClientPage.action</result>
+			<result name="personSuccess" type="redirect">getPersonPage.action</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+	    <!-- Admin页面显示问题列表 -->
+		<action name="getAllDataByPage" method="getAllDataByPage"
+			class="com.sinosoft.gypsymoth.bussiness.onlineqa.action.OnlineqaAction">
+		    <result name="success">onlineList.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		  <!-- Person页面显示问题列表 -->
+		<action name="getPersonPage" method="getPersonPage"
+			class="com.sinosoft.gypsymoth.bussiness.onlineqa.action.OnlineqaAction">
+		    <result name="success">onlinePersonList.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		
+		  <!-- Client页面显示问题列表 -->
+		<action name="getClientPage" method="getClientPage"
+			class="com.sinosoft.gypsymoth.bussiness.onlineqa.action.OnlineqaAction">
+		    <result name="success">onlineClientList.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<!-- 查看问题 -->
+		<action name="getOnlineqaById" method="getOnlineqaById"
+			class="com.sinosoft.gypsymoth.bussiness.onlineqa.action.OnlineqaAction">
+		    <result name="success">onlineDetail.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<!-- 回复问题 -->
+		<action name="getOnlineqaByIds" method="getOnlineqaByIds"
+			class="com.sinosoft.gypsymoth.bussiness.onlineqa.action.OnlineqaAction">
+		    <result name="success" >onlineReplay.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<!-- 回复问题Person -->
+		<action name="getOnlineqaByIdsPerson" method="getOnlineqaByIdsPerson"
+			class="com.sinosoft.gypsymoth.bussiness.onlineqa.action.OnlineqaAction">
+		    <result name="success" >onlineReplayPerson.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<!-- admin回答问题 -->
+		<action name="updataOnlineqa" method="updataOnlineqa"
+			class="com.sinosoft.gypsymoth.bussiness.onlineqa.action.OnlineqaAction">
+		    <result name="success" type="chain">getAllDataByPage</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		
+		<!-- 用户回答问题 -->
+		<action name="updataOnlineqaPerson" method="updataOnlineqaPerson"
+			class="com.sinosoft.gypsymoth.bussiness.onlineqa.action.OnlineqaAction">
+		    <result name="success" type="chain">getPersonPage</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+	    <!-- 删除问题 -->
+		<action name="deleteOnlineqaById" method="deleteOnlineqaById"
+			class="com.sinosoft.gypsymoth.bussiness.onlineqa.action.OnlineqaAction">
+		    <result name="success" type="chain">getAllDataByPage</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<!-- 提问界面 -->
+		<action name="updataC" method="updataC"
+			class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+			<result name="success">clientEdit.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+			<!-- 提出问题 -->
+		<action name="onlineqaSclect" method="onlineqaSclect"
+			class="com.sinosoft.gypsymoth.bussiness.onlineqa.action.OnlineqaAction">
+			<result name="success">onlineQAPerson.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<!-- 批量删除 -->
+		<action name="delete" method="delete"
+			class="com.sinosoft.gypsymoth.bussiness.onlineqa.action.OnlineqaAction">
+			<result name="success" type="chain">getAllDataByPage</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		
+		<!-- 批量删除 -->
+		<action name="onlineqaC" method="onlineqaC"
+			class="com.sinosoft.gypsymoth.bussiness.onlineqa.action.OnlineqaAction">
+			<result name="success" >onlineQAClient.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+	</package>
+</struts>
+
+
+
+

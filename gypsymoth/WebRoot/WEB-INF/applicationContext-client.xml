@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC 
+	"-//SPRING/DTD BEAN/EN" 
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	
+	<!-- business start -->
+	<bean id="clientService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.client.service.ClientServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean id="clientAction"
+		class="com.sinosoft.gypsymoth.bussiness.client.action.ClientAction">
+		<property name="clientService">
+			<ref bean="clientService" />
+		</property>
+		<property name="commonDao">
+			<ref bean="commonDao" />
+		</property>
+	</bean>
+	<!-- system end -->
+</beans>

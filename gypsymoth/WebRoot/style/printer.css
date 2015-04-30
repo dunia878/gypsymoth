@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+
+a:link{text-decoration:none;color:#000;}
+a:visited {text-decoration:none;color:#000;}
+a:hover {text-decoration:underline;color:#000;}
+a:active {text-decoration:none;color:#000;} 
+/*------body------*/
+body {color: #000;margin:8px;background-color:#fff; font-family:"楷体_GB2312";}
+/*------证书格式file1------*/
+.tab{width:620px; color:#000000;margin:auto;padding:1px;font-size:12pt;font-family:"楷体_GB2312";}
+.namber_no{ font-size:9.5pt;font-family:"Calibri";}/*右上角编号*/
+.namber_date{ font-size:9.5pt;font-family:"Calibri";}/*右上角数字*/
+.title{font-size:15pt;font-weight:bolder;text-align:center; }
+.title_en{ font-size:14pt;text-align:center;font-weight:bolder;font-family:"Calibri";}
+.tab_line{ border-bottom:1px solid #000;}
+.txt_10pt{ font-size:11pt; }
+.ht11{font-family:"Calibri"; font-size:11.5pt;}
+.ht10{font-family:"Calibri"; font-size:10.5pt;}
+.ht{font-family:"Calibri";}
+/*------船舶舞毒蛾检查申请表file2------*/
+.tab1{width:630px; color:#000000;margin:auto;font-size:11pt; border:1px solid #000; border-bottom:0px; border-right:0px; }
+.tab1 td{
+font-family:"楷体_GB2312";
+	border-right:1px solid #000;
+	border-bottom:1px solid #000;
+	background:#fff;
+	padding-left:3px;font-family:"Calibri";
+	}
+.input{ border:0px; border-bottom:1px solid #000; height:12px;}
+.input1{ border:0px; border:0px solid #000; height:15px; width:98%;}
+.tit_16pt{ font-size:15.5pt;font-weight:bolder;font-family:"宋体";}
+.tit_en12pt{ font-size:12.5pt;font-weight:bolder;font-family:"Calibri"; }
+.txt_8pt{ font-size:8pt;}
+.en_9pt{ font-size:9pt;}
+.txt_11pt{ font-size:11pt; line-height:28px;}
+/*------file3------*/
+.tab2{width:580px; color:#000000;margin:auto;font-size:10.5pt; border:1px solid #000; border-bottom:0px; border-right:0px; }
+.tab2 td{
+	border-right:1px solid #000;
+	border-bottom:1px solid #000;
+	background:#fff;
+	padding-left:3px;
+	}
+.tit_13pt{ font-size:15pt;font-weight:bold; font-family:"宋体";}
+.tit_en13pt{font-size:14pt;font-weight:bolder;font-family:"Calibri";}
+.txt_11_file3pt{font-size:11pt; line-height:25px;}
+.txt_inspection{
+font-family:"楷体_GB2312";
+	background:#fff;
+	padding-left:3px;font-family:"Calibri";
+	}

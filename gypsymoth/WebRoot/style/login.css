@@ -1,0 +1,22 @@
+a:link{text-decoration:none;color:#000000;}
+a:visited {text-decoration:none;color:#000000;}
+a:hover {text-decoration:underline;color:#113697;}
+a:active {text-decoration:none;color:#000000;} 
+/*------body------*/
+body {font-size:12px;color: #000000;margin:0px;background-color:#fff;}
+img {border:0px;}
+/*------input------*/
+.input_login{font-size:13px;height:17px;width:162px;border:1px #fff solid; color:#000;vertical-align:left; background-color:#fff;}
+/*------content------*/
+.maina{  font-size:14px;}
+.top{ background-image:url(../images/log_top.gif); height:136px; width:1002px; margin:auto;}
+.mid{ background-image:url(../images/log_bg.gif); height:410px;width:1002px; background-repeat:repeat-x; margin:auto;}
+.list{ margin:0px; width:100%}
+.list ul{ margin:0px; padding:0px;margin-left:25px; padding-top:12px;list-style-type: none;}
+.list li{background-image:url(../images/menu_icon.gif); background-repeat:no-repeat; background-position:left;height:15px;white-space:nowrap;text-overflow:ellipsis; overflow: hidden;padding-left:18px; padding-top:6px;width:320px;}
+.list1{ margin:0px; width:100%}
+.list1 ul{ margin:0px; padding:0px;margin-left:25px; padding-top:12px;list-style-type: none;}
+.list1 li{background-image:url(../images/menu_icon.gif); background-repeat:no-repeat; background-position:left;height:15px;white-space:nowrap;text-overflow:ellipsis; overflow: hidden;padding-left:18px; padding-top:6px;width:320px;}
+.bt{ background-image:url(../images/log_btbg.gif); background-repeat:no-repeat;  width:84px; height:27px; text-align:center; font-size:14px; font-weight:bold;  color:#fff; border:0px;cursor:hand;}
+/*------footer------*/
+.footer{width:1002px;margin:auto;height:53px;background-image:url(../images/log_bot.gif);}

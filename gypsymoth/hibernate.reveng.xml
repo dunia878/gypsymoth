@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+	<table name="ACCOUNT" schema="GYPSYMOTH" class="Account">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+		<column name="ACCOUNT_NAME"></column>
+	</table>
+	<table name="ABC" schema="GYPSYMOTH" class="Abc">
+		<primary-key>
+			<generator class="hilo.hex"></generator>
+		</primary-key>
+		<column name="ID"></column>
+		<column name="ACCOUNT_NAME"></column>
+	</table>
+	<table name="EXAMPLE" schema="GYPSYMOTH" class="Example">
+		<primary-key>
+			<generator class="hilo.hex"></generator>
+		</primary-key>
+	</table>
+	<table name="RIGHT" schema="ZHONGJIAN" class="Right">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="ROLE" schema="ZHONGJIAN" class="Role">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="ROLE_RIGHT" schema="ZHONGJIAN" class="RoleRight">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="ACCOUNT_ROLE" schema="ZHONGJIAN" class="AccountRole">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="HISTROY" schema="ZHONGJIAN">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="FILES" schema="ZHONGJIAN">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="CITY" schema="ZHONGJIAN" class="City">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="REGISTRY" schema="ZHONGJIAN">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="BUSINESS_DES_COUNTRY" schema="ZHONGJIAN">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="EMAIL_INFORMATION" schema="ZHONGJIAN">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="CLIENTLOG" schema="ZHONGJIAN">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="ONLINEQA" schema="ZHONGJIAN">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+
+	<table name="CLIENTS" schema="ZHONGJIAN">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="CLIENT" schema="ZHONGJIAN">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+<table name="LINKUS" schema="ZHONGJIAN">
+	<primary-key>
+		<generator class="sequence"></generator>
+	</primary-key>
+</table>
+</hibernate-reverse-engineering>

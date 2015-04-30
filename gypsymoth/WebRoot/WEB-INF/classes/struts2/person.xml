@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	
+	<package name="person" namespace="/page/person" extends="struts-default">		
+		<action name="save" method="save"
+			class="com.sinosoft.gypsymoth.bussiness.person.action.PersonAction">
+			<result name="success">success.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">add.jsp</result>
+		</action>
+		<action name="getAllPersonByPage" method="getAllPersonByPage"
+			class="com.sinosoft.gypsymoth.bussiness.person.action.PersonAction">
+			<result name="success">list.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>		
+		<action name="select" method="select"
+			class="com.sinosoft.gypsymoth.bussiness.person.action.PersonAction">
+			<result name="success">add.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>		
+		<action name="getPersonById" method="getPersonById"
+			class="com.sinosoft.gypsymoth.bussiness.person.action.PersonAction">
+			<result name="success">view.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="getOrgList" method="getOrgList"
+			class="com.sinosoft.gypsymoth.bussiness.person.action.PersonAction">
+			<result name="success">selectOrgTree.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="getUpdatePre" method="getUpdatePre"
+			class="com.sinosoft.gypsymoth.bussiness.person.action.PersonAction">
+			<result name="success">update.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="update" method="update"
+			class="com.sinosoft.gypsymoth.bussiness.person.action.PersonAction">
+			<result name="success">success.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="cancel" method="cancel"
+			class="com.sinosoft.gypsymoth.bussiness.person.action.PersonAction">
+			<result name="success">success.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="delete" method="delete"
+			class="com.sinosoft.gypsymoth.bussiness.person.action.PersonAction">
+			<result name="success">success.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="enable" method="enable"
+			class="com.sinosoft.gypsymoth.bussiness.person.action.PersonAction">
+			<result name="success">success.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="getEnable" method="getEnable"
+			class="com.sinosoft.gypsymoth.bussiness.person.action.PersonAction">
+			<result name="success">personlist.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="getInfoById" method="getInfoById"
+			class="com.sinosoft.gypsymoth.bussiness.person.action.PersonAction">
+			<result name="success">viewinfo.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>	
+		<action name="getUpdateInfo" method="getUpdateInfo"
+			class="com.sinosoft.gypsymoth.bussiness.person.action.PersonAction">
+			<result name="success">updateinfo.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>	
+		<action name="updateInfo" method="updateInfo"
+			class="com.sinosoft.gypsymoth.bussiness.person.action.PersonAction">
+			<result name="success">sucessinfo.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>	
+	</package>
+</struts>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC 
+	"-//SPRING/DTD BEAN/EN" 
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<!-- weitong begin -->
+	<bean id="statisticsSecondService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.statistics.service.StatisticsSecondServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="insert*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+			</props> 
+		</property>
+
+	</bean>
+	<bean id="statisticsSecondAction"
+		class="com.sinosoft.gypsymoth.bussiness.statistics.action.StatisticsSecondAction">
+		<property name="statisticsSecondService">
+			<ref bean="statisticsSecondService" />
+		</property>
+	</bean>
+	<!-- weitong end -->
+		
+		
+		
+	<!-- wangshuang begin -->
+	<bean id="statisticsWormService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.statistics.service.StatisticsWormServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean id="statisticsWormAction"
+		class="com.sinosoft.gypsymoth.bussiness.statistics.action.StatisticsWormAction">
+		<property name="statisticsWormService">
+			<ref bean="statisticsWormService" />
+		</property>
+	</bean>
+	<bean id="statisticsBoatService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.statistics.service.StatisticsBoatServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean id="statisticsBoatAction"
+		class="com.sinosoft.gypsymoth.bussiness.statistics.action.StatisticsBoatAction">
+		<property name="statisticsBoatService">
+			<ref bean="statisticsBoatService" />
+		</property>
+	</bean>
+	<!-- wangshuang end -->
+		
+		
+		
+		
+	<!-- lixin begin -->
+	<bean id="chargesStatService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.statistics.service.ChargesStatServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean id="chargesStatAction"
+		class="com.sinosoft.gypsymoth.bussiness.statistics.action.ChargesStatAction">
+		<property name="chargesStatService">
+			<ref bean="chargesStatService" />
+		</property>
+	</bean>
+	
+	<bean id="businessStatService" parent="txBase">
+		<property name="target">
+			<bean
+				class="com.sinosoft.gypsymoth.bussiness.statistics.service.BusinessStatServiceImpl">
+				<property name="baseHibernateDAO">
+					<ref bean="baseHibernateDAO" />
+				</property>
+			</bean>
+		</property>
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean id="businessStatAction"
+		class="com.sinosoft.gypsymoth.bussiness.statistics.action.BusinessStatAction">
+		<property name="businessStatService">
+			<ref bean="businessStatService" />
+		</property>
+	</bean>
+
+	<!-- lixin end -->
+
+</beans>
