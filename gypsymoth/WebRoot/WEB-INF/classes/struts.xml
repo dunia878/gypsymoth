@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources" value="language"/>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<constant name="struts.multipart.maxSize" value="31457280" />
+	<!-- 全局拦截器 -->	
+	<package name="strutsCheckLogin" extends="struts-default">
+		<interceptors>
+			<interceptor name="noLogin"
+				class="com.sinosoft.gypsymoth.commonInterceptor.AuthorityInterceptor" />
+			<interceptor-stack name="appStack">
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			<interceptor-stack
+				name="defaultPaginationInterceptorStack">
+				<interceptor-ref name="noLogin" />
+				<interceptor-ref name="appStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="defaultPaginationInterceptorStack" />
+
+		<global-results>
+			<result name="login" type="redirect">${pageContext.request.contextPath}/index.jsp</result>			
+			<result name="noframe">${pageContext.request.contextPath}/page/error/error.jsp</result>			
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="noframe" exception="com.sinosoft.gypsymoth.exception.AppException"></exception-mapping>
+		</global-exception-mappings>
+	</package>
+	<include file="struts2/example.xml" />
+	<include file="struts2/system.xml" />
+	<include file="struts2/login.xml" />
+	<include file="struts2/person.xml" />
+	<include file="struts2/bulletin.xml" />
+	<include file="struts2/information.xml" />
+	<include file="struts2/business.xml" />
+	<include file="struts2/register.xml" />
+	<include file="struts2/organization.xml" />
+	<include file="struts2/client.xml" />
+	<include file="struts2/statistics.xml" />
+	<include file="struts2/onlineqa.xml" />
+
+	<include file="struts2/examine.xml" />
+	
+
+</struts>

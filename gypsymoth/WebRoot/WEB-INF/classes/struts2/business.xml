@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<constant name="struts.ui.theme" value="simple" /> 
+<constant name="struts.ui.templateDir" value="template" /> 
+<constant name="struts.ui.templateSuffix" value="ftl" /> 
+
+	<package name="business" namespace="/page/business" extends="struts-default">
+
+		<action name="savebusiness" method="savebusiness" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success" type="chain">getBusinessByPage</result>
+			<result name="save">editApply.jsp</result> 
+			<result name="error">error.jsp</result>
+			<result name="input">error.jsp</result>
+		</action>
+		
+		<action name="updataApply" method="updataApply" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="list" type="chain">getBusinessByPage</result>
+			<result name="success">editApply.jsp</result> 
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>		
+		<action name="ajaxSelect" method="ajaxSelect" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">contentlist.jsp</result> 
+		</action>
+		
+		<action name="commitApply" method="commitApply" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success" >index.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		
+    	<action name="deleteBusinessById" method="deleteBusinessById"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success" type="chain">getBusinessByPage</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="getBusinessById" method="getBusinessById"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success" >editApply.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="getAcceptPage" method="getAcceptPage"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">accept.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="getAllotPage" method="getAllotPage"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">allot.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="getAllotPageDetail" method="getAllotPageDetail"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">allotDetail.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="allotDetailOnly" method="allotDetailOnly"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">allotDetailOnly.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="getAllotPageView" method="getAllotPageView"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">certificateApply.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		
+		<action name="getBusinessByPage" method="getBusinessByPage"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">list.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="searchBusiness" method="searchBusiness"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success_list">list.jsp</result>
+			<result name="success_acceptlist">accept.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="commit" method="commit"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">index.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="commitaftersave" method="commitaftersave"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">index.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="apply" method="apply"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">apply.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="payment" method="payment"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">payment.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<!-- 
+			add by guodingjun 增加预览英文收费单
+			
+		 -->
+		<action name="paymentEnglish" method="payment"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">paymentEnglish.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="pass" method="pass"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">list.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="acceptpass" method="acceptpass"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success" type="chain">getAcceptPage</result>
+			<result name="error">error.jsp</result>
+			<result name="conflict">conflict.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="deleteApply" method="deleteApply"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">list.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="businessApply" method="businessApply"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">businessApply.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="editApply" method="editApply"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">editApply.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="acceptPassdetail" method="acceptPassdetail"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">acceptPass.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		
+		<action name="toAllot" method="toAllot"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="list" type="chain">
+				<param name="actionName">getAllotPage</param>
+				<param name="goPage">${goPage}</param>
+			</result>
+			<result name="success">allotDetail.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="reAllot" method="reAllot"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success" type="chain">getAllotPage</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		
+		<action name="allotlist" method="allotlist"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">allotlist.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="allotlistbyorg" method="allotlistbyorg"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">allotlist.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="tableContent" method="tableContent"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">tableContent.jsp</result>
+			<result name="checkbox">tableContentCheckbox.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="businessRemind" method="businessRemind"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">/page/test.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<!-- charges begin by lixin -->
+		<action name="getPaymentByPage" method="getPaymentByPage"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.ChargesAction">
+			<result name="success">chargesManager.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="getPaymentByBusinessid" method="getPaymentByBusinessid"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.ChargesAction">
+			<result name="success">chargesUpdate.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="updatePayment" method="updatePayment"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.ChargesAction">
+			<result name="success" type="chain">
+				<param name="actionName">getPaymentByPage</param>
+				<param name="goPage">${goPage}</param>
+			</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="havePayment" method="havePayment"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.ChargesAction">
+			<result name="success">chargesUpdate.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<!-- charges end by lixin -->
+		<!-- select begin by lixin -->
+		<action name="getSelectByPage" method="getSelectByPage"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.SelectAction">
+			<result name="success">selectManager.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="getSelectByBusinessid" method="getSelectByBusinessid"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.SelectAction">
+			<result name="success">selectView.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="updateSelect" method="updateSelect"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.SelectAction">
+			<result name="success" type="redirect">getSelectByPage.action</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="getOrgList" method="getOrgList"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.SelectAction">
+			<result name="success">selectOrgTree.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="getSelectZSByBusinessid" method="getSelectZSByBusinessid"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.SelectAction">
+			<result name="success">selectViewZS.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="updateQualified" method="updateQualified"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.SelectAction">
+			<result name="success">selectAjaxResult.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="selectgetBusinessById" method="getBusinessById"
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success" >selectEditApply.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="selectupdataApply" method="selectupdataApply" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">selectEditApply.jsp</result> 
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<!-- select end by lixin -->
+
+
+		<!-- certificate begin #weitong -->
+		<action name="certificate" method="certificate" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+			<result name="success">certificate.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="certificateContent" method="certificateContent" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+			<result name="success">certificateContent.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="certificateEmptySend" method="certificateEmptySend" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+			<result name="success">certificateEmptySend.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="certificateEmptylist" method="certificateEmptylist" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+			<result name="success">certificateEmptylist.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="toCreateEmptyCert" method="toCreateEmptyCert" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+			<result name="success" type="chain">certificate</result> 
+			<result name="error">error.jsp</result> 
+			<result name="input">certificateEmptySend.jsp</result>
+		</action>
+		<action name="toAllotCertNo" method="toAllotCertNo" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+			<result name="success" type="chain">certificate</result> 
+			<result name="error">error.jsp</result> 
+			<result name="input">certificateEmptylist.jsp</result>
+		</action>
+		<action name="searchEmpty" method="searchEmpty" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+			<result name="success">certificate.jsp</result> 
+			<result name="error">error.jsp</result> 
+			<result name="input">certificateEmptySend.jsp</result>
+		</action>
+		<action name="lookCert" method="lookCert" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+			<result name="success">certificateEdit.jsp</result> 
+			<result name="error">error.jsp</result> 
+			<result name="input">certificateEmptySend.jsp</result>
+		</action>
+		<action name="certificatemodify" method="certificatemodify" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+			<result name="success">certificateModify.jsp</result> 
+			<result name="error">error.jsp</result> 
+		</action>
+		<action name="savecertificate" method="savecertificate" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+			<result name="success" type="chain">lookCert</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="certNo" method="certNo" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+			<result name="success">certNo.jsp</result> 
+		</action>
+		<action name="saveCertApp" method="saveCertApp" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+			<result name="success" type="chain">certificate</result>
+		</action>
+		<action name="certinfo" method="certinfo" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+			<result name="success">certinfo.jsp</result>
+			<result name="error">certinfo.jsp</result>
+		</action>
+		<action name="stamp" method="stamp" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+			<result name="success">stamp.jsp</result>
+			<result name="error">stamp.jsp</result>
+		</action>
+		<action name="savestamp" method="savestamp" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+			<result name="success" type="redirect">certificate.action?tagtype=2</result>
+			<result name="error">stamp.jsp</result> 
+		</action>
+		<action name="createstamp" method="createstamp" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+			<result name="success">stampCreate.jsp</result> 
+			<result name="error">stampCreate.jsp</result>
+		</action>
+		<action name="saveStamp" method="saveStamp" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+			<result name="success">stampCreate.jsp</result> 
+			<result name="error">stampCreate.jsp</result>
+		</action>
+		<action name="deletestamp" method="deletestamp" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.CertificateAction">
+			<result name="success">stamp.jsp</result>  
+			<result name="error">certificate.jsp</result>
+		</action>
+		<!-- certificate end  #weitong -->  
+		<action name="deleteBusiness" method="deleteBusiness" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.SelectAction">
+			<result name="success" type="chain">getSelectByPage</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<!-- 更改上传资料 现在客户每说要改<action name="updateIt" method="updateIt" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.BusinessAction">
+			<result name="success">update_it.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		 -->
+		 <!-- 一下两个是新增的导出excel功能的配置 -->
+		 <action name="getExcel" method="getExcel" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.SelectAction">
+		</action>
+		<action name="getBMBB" method="getBMBB" 
+			class="com.sinosoft.gypsymoth.bussiness.business.action.SelectAction">
+		</action>
+	</package>
+</struts>
+
+
+
+

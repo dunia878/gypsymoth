@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	
+	<package name="system" namespace="/page/system" extends="strutsCheckLogin">
+	
+		<!-- right begin -->
+		<action name="getAllRight" method="getAllRight"
+			class="com.sinosoft.gypsymoth.bussiness.system.action.RightAction">
+			<result name="success">rightManager.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<!-- right end -->
+		<!-- role begin -->
+		<action name="getRoleByPage" method="getRoleByPage"
+			class="com.sinosoft.gypsymoth.bussiness.system.action.RoleAction">
+			<result name="success">roleManager.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="saveRole" method="saveRole"
+			class="com.sinosoft.gypsymoth.bussiness.system.action.RoleAction">
+			<result name="success" type="redirect">getRoleByPage.action</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="getRoleById" method="getRoleById"
+			class="com.sinosoft.gypsymoth.bussiness.system.action.RoleAction">
+			<result name="success">roleUpdate.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="updateRole" method="updateRole"
+			class="com.sinosoft.gypsymoth.bussiness.system.action.RoleAction">
+			<result name="success" type="redirect">getRoleByPage.action</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="deleteRoleById" method="deleteRoleById"
+			class="com.sinosoft.gypsymoth.bussiness.system.action.RoleAction">
+			<result name="success" type="redirect">getRoleByPage.action</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<!-- role end -->
+		<!-- account begin -->
+		<action name="getAccountByPage" method="getAccountByPage"
+			class="com.sinosoft.gypsymoth.bussiness.system.action.AccountAction">
+			<result name="success">accountManager.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="getAccountInitData" method="getAccountInitData"
+			class="com.sinosoft.gypsymoth.bussiness.system.action.AccountAction">
+			<result name="success">accountAdd.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="saveAccount" method="saveAccount"
+			class="com.sinosoft.gypsymoth.bussiness.system.action.AccountAction">
+			<result name="success" type="redirect">getAccountByPage.action</result>
+			<result name="haveName" type="redirect">getAccountInitData.action?message=${message}</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="getAccountById" method="getAccountById"
+			class="com.sinosoft.gypsymoth.bussiness.system.action.AccountAction">
+			<result name="success">accountUpdate.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="updateAccount" method="updateAccount"
+			class="com.sinosoft.gypsymoth.bussiness.system.action.AccountAction">
+			<result name="success" type="redirect">getAccountByPage.action?currPageTmp=${currPageTmp}</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="updateAccountStatus" method="updateAccountStatus"
+			class="com.sinosoft.gypsymoth.bussiness.system.action.AccountAction">
+			<result name="success">accountManager.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="updateAccountPassword" method="updateAccountPassword"
+			class="com.sinosoft.gypsymoth.bussiness.system.action.AccountAction">
+			<result name="success" type="redirect">getAccountByPage.action</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="deleteAccountById" method="deleteAccountById"
+			class="com.sinosoft.gypsymoth.bussiness.system.action.AccountAction">
+			<result name="success" type="redirect">getAccountByPage.action</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="updatePassword" method="updatePassword"
+			class="com.sinosoft.gypsymoth.bussiness.system.action.AccountAction">
+			<result name="success">updatePassword.jsp</result>
+			<result name="passworderror">updatePassword.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="updateCorP" method="updateCorP"
+			class="com.sinosoft.gypsymoth.bussiness.system.action.AccountAction">
+			<result name="updatePerson" type="redirect">/page/person/getInfoById.action</result>
+			<result name="updateClient" type="redirect">/page/client/getClientInfoByIds.action</result>
+			<result name="error">error.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<!-- account end -->
+		<action name="updateLog" method="updateLog"
+		class="com.sinosoft.gypsymoth.bussiness.system.action.AccountAction">
+			<result name="success" type="redirect">getAccountByPage.action</result>
+		</action>
+	</package>
+</struts>
